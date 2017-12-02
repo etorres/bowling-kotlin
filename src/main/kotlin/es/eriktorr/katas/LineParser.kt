@@ -1,4 +1,4 @@
 package es.eriktorr.katas
 
-class LineSplitter {
+class LineParser {
 }
