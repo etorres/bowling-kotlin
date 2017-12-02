@@ -17,9 +17,9 @@ class BowlingScoreCalculatorTest {
             "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-" to 90,
             "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5" to 150,
             "X 9/ 5/ 72 X X X 9- 8/ 9/X" to 187)
-            .map { (gameLine, expectedScore) ->
-                dynamicTest("scoreOf($gameLine) => $expectedScore") {
-                    assertThat(bowlingScoreCalculator.scoreOf(gameLine)).isEqualTo(expectedScore)
+            .map { (gameLine, score) ->
+                dynamicTest("scoreOf($gameLine) => $score") {
+                    assertThat(bowlingScoreCalculator.scoreOf(gameLine)).isEqualTo(score)
                 }
             }
 
