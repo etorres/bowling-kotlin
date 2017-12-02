@@ -23,22 +23,22 @@ sealed class Frame {
         }
     }
 
-    object Strike: Frame() {
-        override fun pinFallSum(): Int = TOTAL_NUMBER_OF_PINS
-        override fun pinFallBy(roll: Roll): Int? {
-            return when (roll) {
-                FIRST_ROLL -> TOTAL_NUMBER_OF_PINS
-                SECOND_ROLL -> null
-            }
-        }
-    }
-
     data class Spare(private val pinFallFirstRoll: Int): Frame() {
         override fun pinFallSum(): Int = TOTAL_NUMBER_OF_PINS
         override fun pinFallBy(roll: Roll): Int {
             return when (roll) {
                 FIRST_ROLL -> pinFallFirstRoll
                 SECOND_ROLL -> TOTAL_NUMBER_OF_PINS - pinFallFirstRoll
+            }
+        }
+    }
+
+    object Strike: Frame() {
+        override fun pinFallSum(): Int = TOTAL_NUMBER_OF_PINS
+        override fun pinFallBy(roll: Roll): Int? {
+            return when (roll) {
+                FIRST_ROLL -> TOTAL_NUMBER_OF_PINS
+                SECOND_ROLL -> null
             }
         }
     }

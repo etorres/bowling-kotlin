@@ -1,16 +1,15 @@
 package es.eriktorr.katas.acceptance
 
 import es.eriktorr.katas.BowlingScoreCalculator
+import es.eriktorr.katas.GameParser
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.DynamicTest.dynamicTest
 import org.junit.jupiter.api.TestFactory
 
 class BowlingScoreCalculatorTest {
 
-    private val bowlingScoreCalculator = BowlingScoreCalculator()
+    private val bowlingScoreCalculator = BowlingScoreCalculator(GameParser())
 
-    @Disabled("feature under development")
     @TestFactory
     fun calculateGameScore() = listOf(
             "X X X X X X X X X XXX" to 300,
