@@ -13,7 +13,7 @@ sealed class Frame {
 
     abstract fun pinFallBy(roll: Roll): Int?
 
-    data class Regular(private val pinFallFirstRoll: Int, private val pinFallSecondRoll: Int): Frame() {
+    data class Regular(private val pinFallFirstRoll: Int, private val pinFallSecondRoll: Int = 0): Frame() {
         override fun pinFallSum(): Int = pinFallFirstRoll + pinFallSecondRoll
         override fun pinFallBy(roll: Roll): Int {
             return when (roll) {
